@@ -18,7 +18,7 @@ public class SwapPairs {
             pre.next = right;
             left.next = right.next;
             right.next = left;
-
+            //移动指针
             pre = left;
             head = left.next;
         }
