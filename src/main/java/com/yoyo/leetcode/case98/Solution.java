@@ -18,5 +18,6 @@ public class Solution {
         TreeNode rootN = new TreeNode(2);
         rootN.left = new TreeNode(1);
         rootN.right = new TreeNode(3);
+        new Solution().isValidBST(rootN);
     }
 }
