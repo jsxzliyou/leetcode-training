@@ -5,26 +5,23 @@ public class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 
         ListNode dummy = new ListNode(0);
-        ListNode result = new ListNode();
-        dummy.next = result;
+        ListNode result = dummy;
         ListNode t1 = l1;
         ListNode t2 = l2;
         ListNode temp = null;
         while (t1 != null && t2 != null) {
-            temp = new ListNode();
-
             if (t1.val < t2.val) {
-                temp.val = t1.val;
+                temp = new ListNode(t1.val);
                 t1 = t1.next;
             } else {
-                temp.val = t2.val;
+                temp = new ListNode(t2.val);
                 t2 = t2.next;
             }
             result.next = temp;
             result = result.next;
         }
         result.next = t1==null?t2:t1;
-        return dummy.next.next;
+        return dummy.next;
     }
 
     public static void main(String[] args) {
