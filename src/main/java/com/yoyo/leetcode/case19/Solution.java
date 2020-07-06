@@ -4,31 +4,23 @@ public class Solution {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
 
-        if (head.next == null) return null;
+        ListNode first = new ListNode(0);
+        first.next = head;
+
+        int length = 1;
         ListNode tmp = head;
-        int i = 1;
         while (tmp.next != null) {
-            i++;
+            length++;
             tmp = tmp.next;
         }
-        //如果删除头元素
-        if (i == n) {
-            return head.next;
-        }
-        tmp = head;
-        for (int k = 0;k<i-n;k++) {
-            if (k == i-n-1) {
-                if (tmp.next.next == null) {
-                    tmp.next = null;
-                    return head;
-                } else {
-                    tmp.next = tmp.next.next;
-                    return head;
-                }
-            }
+        length-=n;
+        tmp = first;
+        while (length > 0) {
             tmp = tmp.next;
+            length--;
         }
-        return head;
+        tmp.next = tmp.next.next;
+        return first.next;
     }
 
     public static void main(String[] args) {
