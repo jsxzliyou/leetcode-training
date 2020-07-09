@@ -39,16 +39,16 @@ public class Sort {
     // 选择排序
     private static void selectSort(int[] nums) {
         int length = nums.length;
-        for (int i = 0;i < length;i++) {
-            int val = nums[i],index = i;
+        for (int i = 0;i < length - 1;i++) {
+            int index = i;
             for (int k = i+1;k<length;k++) {
-                if (val > nums[k]) {
-                    val = nums[k];
+                if (nums[i] > nums[k]) {
                     index = k;
                 }
             }
+            int tmp = nums[index];
             nums[index] = nums[i];
-            nums[i] = val;
+            nums[i] = tmp;
         }
     }
 
