@@ -42,7 +42,7 @@ public class Sort {
         for (int i = 0;i < length - 1;i++) {
             int index = i;
             for (int k = i+1;k<length;k++) {
-                if (nums[i] > nums[k]) {
+                if (nums[index] > nums[k]) {
                     index = k;
                 }
             }
@@ -52,10 +52,28 @@ public class Sort {
         }
     }
 
+    // 插入排序
+    private static void insertSort(int[] nums) {
+        int length = nums.length;
+        for (int i = 1; i < length; ++i) {
+            int value = nums[i];
+            int j = i - 1;
+            // 查找要插入的位置并移动数据
+            for (; j >= 0; --j) {
+                if (nums[j] > value) {
+                    nums[j + 1] = nums[j];
+                } else {
+                    break;
+                }
+            }
+            nums[j + 1] = value;
+        }
+    }
+
     public static void main(String[] args) {
 
-        int[] nums = {8,3,2,56,3,98,1,10};
-        selectSort(nums);
+        int[] nums = {6,5,4,3,2,1};
+        insertSort(nums);
         System.out.println(Arrays.toString(nums));
     }
 }
